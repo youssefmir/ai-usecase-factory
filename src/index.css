@@ -1,150 +1,135 @@
 @import 'tailwindcss';
 
 /*
- * Identité visuelle commune (projets portfolio de Youssef Mir).
- * Toutes les couleurs sont des variables CSS ; Tailwind les expose comme utilitaires
- * (bg-surface, text-muted, border-line…), ce qui permet de basculer de thème sans classes dark:.
+ * Direction artistique « atelier industriel et signalétique de sécurité ».
+ * - Documents techniques : papier quadrillé, étiquettes de nomenclature, filets fins.
+ * - Code couleur ISO 7010 : rouge = interdiction, jaune + noir = danger (haut risque),
+ *   bleu = obligation (et couleur d'action), vert = situation sûre (risque minimal).
+ * Toutes les couleurs sont des variables CSS exposées à Tailwind (bg-surface, text-muted…).
  */
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: 'IBM Plex Sans Condensed', 'IBM Plex Sans', ui-sans-serif, sans-serif;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-line: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-ink: var(--accent-ink);
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-2: var(--accent-2);
-  --color-warn: var(--warn);
-  --color-warn-ink: var(--warn-ink);
-  --color-warn-soft: var(--warn-soft);
-  --color-risk: var(--risk);
-  --color-risk-ink: var(--risk-ink);
-  --color-risk-soft: var(--risk-soft);
-  --color-ok: var(--ok);
-  --color-ok-ink: var(--ok-ink);
-  --color-ok-soft: var(--ok-soft);
+  --color-line: var(--rule);
+  --color-line-strong: var(--rule-strong);
+  --color-action: var(--action);
+  --color-action-ink: var(--action-ink);
+  --color-action-soft: var(--action-soft);
+  --color-sig-red: var(--sig-red);
+  --color-sig-yellow: var(--sig-yellow);
+  --color-sig-blue: var(--sig-blue);
+  --color-sig-green: var(--sig-green);
+  --color-sig-red-soft: var(--sig-red-soft);
+  --color-sig-yellow-soft: var(--sig-yellow-soft);
+  --color-sig-green-soft: var(--sig-green-soft);
+  --color-black: #15171a;
 
-  --radius-card: 12px;
-  --shadow-card: 0 1px 2px rgb(var(--shadow-rgb) / 0.05), 0 6px 20px rgb(var(--shadow-rgb) / 0.05);
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
 }
 
-/* Thème clair (par défaut) */
+/* Thème clair : béton clair et papier technique */
 :root {
   color-scheme: light;
-  --bg: #f8fafc;
+  --bg: #ecedea;
   --surface: #ffffff;
-  --surface-2: #f1f5f9;
-  --ink: #0f172a;
-  --muted: #475569;
-  --border: #e2e8f0;
-  --accent: #4f46e5;
-  --accent-ink: #ffffff;
-  --accent-soft: #eef2ff;
-  --accent-2: #0d9488;
-  --warn: #d97706;
-  --warn-ink: #b45309;
-  --warn-soft: #fffbeb;
-  --risk: #e11d48;
-  --risk-ink: #be123c;
-  --risk-soft: #fff1f2;
-  --ok: #16a34a;
-  --ok-ink: #15803d;
-  --ok-soft: #f0fdf4;
-  --shadow-rgb: 15 23 42;
+  --surface-2: #f5f6f3;
+  --ink: #15171a;
+  --muted: #5b6066;
+  --rule: #d3d5d1;
+  --rule-strong: #a9ada8;
+  --action: #005387;
+  --action-hover: #00436e;
+  --action-ink: #ffffff;
+  --action-soft: #e3edf5;
+  --sig-red: #c8102e;
+  --sig-yellow: #f2b800;
+  --sig-blue: #005387;
+  --sig-green: #1e7b3c;
+  --sig-red-soft: #f9e5e8;
+  --sig-yellow-soft: #fdf3d3;
+  --sig-green-soft: #e3f0e7;
+  --grid-minor: rgb(21 23 26 / 0.035);
+  --grid-major: rgb(21 23 26 / 0.06);
 
-  /* Graphiques (palette validée : contraste et daltonisme) */
-  --chart-surface: #ffffff;
-  --chart-grid: #e2e8f0;
-  --chart-axis: #cbd5e1;
-  --chart-label: #475569;
-  --series-1: #4f46e5;
-  --series-2: #0d9488;
-  --level-interdit: #e11d48;
-  --level-haut: #d97706;
-  --level-transparence: #4f46e5;
-  --level-minimal: #0d9488;
-  --level-neutre: #94a3b8;
+  /* Graphiques : bleu d'action, rampe ordinale bleue, gris de mise en retrait */
+  --chart-1: #005387;
+  --chart-1-light: #7aa7cc;
+  --chart-neutral: #a9ada8;
+  --chart-grid: #e3e5e1;
+  --chart-axis: #a9ada8;
 }
 
-/* Thème sombre : réglage du système, sauf choix explicite du thème clair */
+/* Thème sombre « salle de contrôle » (réglage du système, sauf choix explicite du clair) */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --bg: #0b1120;
-    --surface: #111827;
-    --surface-2: #1e293b;
-    --ink: #e5e7eb;
-    --muted: #94a3b8;
-    --border: #1f2937;
-    --accent: #818cf8;
-    --accent-ink: #0b1120;
-    --accent-soft: rgb(129 140 248 / 0.14);
-    --accent-2: #2dd4bf;
-    --warn: #f59e0b;
-    --warn-ink: #fbbf24;
-    --warn-soft: rgb(245 158 11 / 0.12);
-    --risk: #fb7185;
-    --risk-ink: #fda4af;
-    --risk-soft: rgb(251 113 133 / 0.12);
-    --ok: #4ade80;
-    --ok-ink: #86efac;
-    --ok-soft: rgb(74 222 128 / 0.12);
-    --shadow-rgb: 0 0 0;
+    --bg: #101214;
+    --surface: #181b1e;
+    --surface-2: #1f2327;
+    --ink: #e8eaec;
+    --muted: #9aa1a8;
+    --rule: #2b3035;
+    --rule-strong: #4a5158;
+    --action: #5aa7e0;
+    --action-hover: #7dbdeb;
+    --action-ink: #101214;
+    --action-soft: rgb(90 167 224 / 0.14);
+    --sig-red: #f0606a;
+    --sig-yellow: #f5c211;
+    --sig-blue: #5aa7e0;
+    --sig-green: #46b36a;
+    --sig-red-soft: rgb(240 96 106 / 0.14);
+    --sig-yellow-soft: rgb(245 194 17 / 0.12);
+    --sig-green-soft: rgb(70 179 106 / 0.14);
+    --grid-minor: rgb(232 234 236 / 0.025);
+    --grid-major: rgb(232 234 236 / 0.045);
 
-    --chart-surface: #111827;
-    --chart-grid: #1f2937;
-    --chart-axis: #334155;
-    --chart-label: #94a3b8;
-    --series-1: #6366f1;
-    --series-2: #0f9f92;
-    --level-interdit: #e11d48;
-    --level-haut: #d97706;
-    --level-transparence: #6366f1;
-    --level-minimal: #0f9f92;
-    --level-neutre: #64748b;
+    --chart-1: #5aa7e0;
+    --chart-1-light: #336e9e;
+    --chart-neutral: #5d656d;
+    --chart-grid: #262b30;
+    --chart-axis: #4a5158;
   }
 }
 
 /* Thème sombre choisi manuellement (bascule mémorisée) */
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --bg: #0b1120;
-  --surface: #111827;
-  --surface-2: #1e293b;
-  --ink: #e5e7eb;
-  --muted: #94a3b8;
-  --border: #1f2937;
-  --accent: #818cf8;
-  --accent-ink: #0b1120;
-  --accent-soft: rgb(129 140 248 / 0.14);
-  --accent-2: #2dd4bf;
-  --warn: #f59e0b;
-  --warn-ink: #fbbf24;
-  --warn-soft: rgb(245 158 11 / 0.12);
-  --risk: #fb7185;
-  --risk-ink: #fda4af;
-  --risk-soft: rgb(251 113 133 / 0.12);
-  --ok: #4ade80;
-  --ok-ink: #86efac;
-  --ok-soft: rgb(74 222 128 / 0.12);
-  --shadow-rgb: 0 0 0;
+  --bg: #101214;
+  --surface: #181b1e;
+  --surface-2: #1f2327;
+  --ink: #e8eaec;
+  --muted: #9aa1a8;
+  --rule: #2b3035;
+  --rule-strong: #4a5158;
+  --action: #5aa7e0;
+  --action-hover: #7dbdeb;
+  --action-ink: #101214;
+  --action-soft: rgb(90 167 224 / 0.14);
+  --sig-red: #f0606a;
+  --sig-yellow: #f5c211;
+  --sig-blue: #5aa7e0;
+  --sig-green: #46b36a;
+  --sig-red-soft: rgb(240 96 106 / 0.14);
+  --sig-yellow-soft: rgb(245 194 17 / 0.12);
+  --sig-green-soft: rgb(70 179 106 / 0.14);
+  --grid-minor: rgb(232 234 236 / 0.025);
+  --grid-major: rgb(232 234 236 / 0.045);
 
-  --chart-surface: #111827;
-  --chart-grid: #1f2937;
-  --chart-axis: #334155;
-  --chart-label: #94a3b8;
-  --series-1: #6366f1;
-  --series-2: #0f9f92;
-  --level-interdit: #e11d48;
-  --level-haut: #d97706;
-  --level-transparence: #6366f1;
-  --level-minimal: #0f9f92;
-  --level-neutre: #64748b;
+  --chart-1: #5aa7e0;
+  --chart-1-light: #336e9e;
+  --chart-neutral: #5d656d;
+  --chart-grid: #262b30;
+  --chart-axis: #4a5158;
 }
 
 @layer base {
@@ -155,31 +140,45 @@
 
   body {
     margin: 0;
-    background-color: var(--bg);
+    min-height: 100vh;
     color: var(--ink);
     font-family: var(--font-sans);
     font-size: 15px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    /* Papier technique : quadrillage fin (24 px) et grille majeure (120 px) */
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(to right, var(--grid-minor) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-minor) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      24px 24px,
+      24px 24px;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    line-height: 1.25;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    line-height: 1.12;
+    letter-spacing: -0.005em;
+    font-weight: 600;
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent);
+    outline: 2px solid var(--action);
     outline-offset: 2px;
   }
 
   ::selection {
-    background-color: var(--accent-soft);
+    background-color: var(--sig-yellow);
+    color: #15171a;
   }
 
   input,
@@ -189,42 +188,61 @@
     font: inherit;
     color: inherit;
   }
+
+  a {
+    text-underline-offset: 3px;
+  }
 }
 
 @layer components {
-  .card {
+  /* Plaque : surface de travail à filet fin, sans ombre portée */
+  .plate {
     background-color: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
   }
 
-  .num {
+  /* Étiquette de nomenclature : petites capitales espacées */
+  .label-caps {
+    font-family: var(--font-display);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .mono {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
+  }
+
+  /* Bandeau de danger jaune et noir (signalétique), utilisé avec parcimonie */
+  .hazard {
+    background-image: repeating-linear-gradient(-45deg, #f2b800 0 8px, #15171a 8px 16px);
   }
 
   .field-input {
     width: 100%;
     min-height: 2.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--border);
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--rule-strong);
     background-color: var(--surface);
-    padding: 0.45rem 0.7rem;
+    padding: 0.45rem 0.65rem;
     transition:
-      border-color 120ms ease,
-      box-shadow 120ms ease;
+      border-color 150ms ease-out,
+      box-shadow 150ms ease-out;
   }
 
   .field-input:hover {
-    border-color: color-mix(in oklab, var(--muted) 45%, var(--border));
+    border-color: var(--muted);
   }
 
   .field-input:focus {
     outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 22%, transparent);
+    border-color: var(--action);
+    box-shadow: 0 0 0 3px var(--action-soft);
   }
 
   .field-input:disabled {
@@ -232,8 +250,38 @@
     cursor: not-allowed;
   }
 
-  .prose-note p + p {
-    margin-top: 0.5rem;
+  .field-input[aria-invalid='true'] {
+    border-color: var(--sig-red);
+  }
+
+  /* Tableaux denses à filets */
+  .table-tech {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .table-tech th {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+
+  .table-tech td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .table-tech tbody tr:last-child td {
+    border-bottom: none;
   }
 }
 
@@ -242,12 +290,13 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
 
-/* Impression (note de cadrage A4) : on force le thème clair et on masque l'interface. */
+/* Impression (note de cadrage A4) : thème clair forcé, interface masquée. */
 @media print {
   @page {
     size: A4;
@@ -260,48 +309,36 @@
     color-scheme: light;
     --bg: #ffffff;
     --surface: #ffffff;
-    --surface-2: #f1f5f9;
-    --ink: #0f172a;
-    --muted: #475569;
-    --border: #cbd5e1;
-    --accent: #4f46e5;
-    --accent-ink: #ffffff;
-    --accent-soft: #eef2ff;
-    --accent-2: #0d9488;
-    --warn: #d97706;
-    --warn-ink: #b45309;
-    --warn-soft: #fffbeb;
-    --risk: #e11d48;
-    --risk-ink: #be123c;
-    --risk-soft: #fff1f2;
-    --ok: #16a34a;
-    --ok-ink: #15803d;
-    --ok-soft: #f0fdf4;
-    --chart-surface: #ffffff;
-    --chart-grid: #e2e8f0;
-    --chart-axis: #cbd5e1;
-    --chart-label: #475569;
-    --series-1: #4f46e5;
-    --series-2: #0d9488;
-    --level-interdit: #e11d48;
-    --level-haut: #d97706;
-    --level-transparence: #4f46e5;
-    --level-minimal: #0d9488;
-    --level-neutre: #94a3b8;
+    --surface-2: #f5f6f3;
+    --ink: #15171a;
+    --muted: #5b6066;
+    --rule: #c4c7c3;
+    --rule-strong: #8f948f;
+    --action: #005387;
+    --action-ink: #ffffff;
+    --action-soft: #e3edf5;
+    --sig-red: #c8102e;
+    --sig-yellow: #f2b800;
+    --sig-blue: #005387;
+    --sig-green: #1e7b3c;
+    --sig-red-soft: #f9e5e8;
+    --sig-yellow-soft: #fdf3d3;
+    --sig-green-soft: #e3f0e7;
+    --chart-1: #005387;
+    --chart-1-light: #7aa7cc;
+    --chart-neutral: #a9ada8;
+    --chart-grid: #e3e5e1;
+    --chart-axis: #a9ada8;
   }
 
   html,
   body {
     background: #ffffff !important;
-    font-size: 10.5pt;
+    font-size: 10pt;
   }
 
   .no-print {
     display: none !important;
-  }
-
-  .card {
-    box-shadow: none;
   }
 
   .print-break-before {

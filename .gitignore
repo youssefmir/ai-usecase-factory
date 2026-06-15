@@ -1,0 +1,18 @@
+# Dépendances et builds
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Rapports de tests
+coverage/
+playwright-report/
+test-results/
+blob-report/
+
+# Éditeurs et système
+.DS_Store
+.vscode/
+.idea/
+*.log
+.env
+.env.*

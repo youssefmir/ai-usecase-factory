@@ -342,8 +342,13 @@
     break-before: page;
   }
 
-  .avoid-break {
+  .avoid-break,
+  .table-tech tr {
     break-inside: avoid;
+  }
+
+  .table-tech thead {
+    display: table-header-group;
   }
 
   a {

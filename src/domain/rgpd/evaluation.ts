@@ -7,6 +7,7 @@
  *   avec la vigilance issue de l'arrêt CJUE SCHUFA (C-634/21, 7 décembre 2023).
  * - Nécessité d'une AIPD (art. 35) : liste CNIL, ou au moins 2 des 9 critères WP248.
  */
+import { typographie } from '../format';
 import type { Reponse, RgpdReponses } from '../model';
 import type { CasAnnexeIIIId } from '../aiAct/catalog';
 import { BASES_LEGALES, CATEGORIES_ART_9, CRITERES_AIPD, type CritereAipdId } from './catalog';
@@ -97,10 +98,10 @@ export function evaluerRgpd(r: RgpdReponses, contexte: ContexteRgpd = {}): Resul
     criteresSuggeresNonRetenus: extras.criteresSuggeresNonRetenus ?? [],
     article9: extras.article9 ?? false,
     article22: extras.article22 ?? 'inconnu',
-    justification,
-    pointsVigilance,
+    justification: justification.map(typographie),
+    pointsVigilance: pointsVigilance.map(typographie),
     articles: [...refs].map((ref) => ({ ref, titre: TITRES_ARTICLES[ref] ?? '' })),
-    manquants,
+    manquants: manquants.map(typographie),
     mention: MENTION_RGPD,
   });
 

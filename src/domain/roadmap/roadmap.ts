@@ -11,6 +11,7 @@
  * 5. Un ajustement manuel remplace la proposition ; les incohérences sont signalées, jamais bloquées.
  */
 import type { NiveauAiAct } from '../aiAct/qualification';
+import { typographie } from '../format';
 import type { UseCase, Vague } from '../model';
 import { SEUIL_RISQUE_ELEVE, type ResultatScoring } from '../scoring/scoring';
 
@@ -219,7 +220,7 @@ export function proposerRoadmap(
       manuelle,
       priorite: scoring.priorite,
       vagueMinimale: (vagueMin.get(cas.id) ?? 0) as VagueRoadmap,
-      raisons: r,
+      raisons: r.map(typographie),
       conflits: [],
       ...fenetre(vague),
     };

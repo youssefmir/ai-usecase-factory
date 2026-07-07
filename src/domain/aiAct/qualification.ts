@@ -7,6 +7,7 @@
  *
  * Résultat : aide à la qualification, qui ne constitue pas un avis juridique.
  */
+import { typographie } from '../format';
 import type { AiActReponses } from '../model';
 import { dateDuJour, jalonsPourPortees, type JalonDate, type PorteeJalon } from './calendar';
 import {
@@ -177,19 +178,19 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
       niveau,
       niveauProvisoire,
       libelle: NIVEAUX_AI_ACT[niveau].libelle,
-      justification,
+      justification: justification.map(typographie),
       articles: [...refsArticles]
         .sort(comparerRefs)
         .map((ref) => ({ ref, titre: ARTICLES[ref] ?? '' })),
-      obligations,
+      obligations: obligations.map((o) => ({ ...o, texte: typographie(o.texte) })),
       calendrier,
       echeanceCle,
       transparence: extras.transparence ?? false,
       fria: extras.fria ?? false,
       derogationAppliquee: extras.derogationAppliquee ?? null,
       voieHautRisque: extras.voieHautRisque ?? null,
-      avertissements,
-      manquants,
+      avertissements: avertissements.map(typographie),
+      manquants: manquants.map(typographie),
       mention: MENTION_AI_ACT,
     };
   };
@@ -233,7 +234,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
     manquants.push("Rôle de l'organisation : fournisseur, déployeur ou les deux ?");
   } else {
     const role = ROLES.find((x) => x.id === r.role);
-    justification.push(`Rôle déclaré : ${role?.libelle.toLowerCase()} (${role?.description})`);
+    justification.push(`Rôle déclaré : ${role?.libelle.toLowerCase()}.`);
     if (r.role === 'deployeur' && r.modificationSubstantielle === 'oui') {
       refsArticles.add('art. 25');
       justification.push(

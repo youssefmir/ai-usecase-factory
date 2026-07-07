@@ -98,3 +98,8 @@ export function fmtMois(mois: number | null): string {
   if (mois <= 0) return 'Immédiat';
   return `${fmtNombre(mois, 1)} mois`;
 }
+
+/** Typographie française des textes affichés : apostrophe typographique. */
+export function typographie(texte: string): string {
+  return texte.replace(/'/g, '\u2019');
+}

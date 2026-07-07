@@ -116,6 +116,8 @@ export function ChampNombre({
   const id = useId();
   const [edition, setEdition] = useState<string | null>(null);
   const affichee = valeur === null ? '' : fmtNombre(pourcentage ? valeur * 100 : valeur, pourcentage ? Math.max(0, decimales - 2) : decimales);
+  const uniteCourte = pourcentage ? '%' : unite && unite.length <= 6 ? unite : undefined;
+  const uniteLongue = !pourcentage && unite && unite.length > 6 ? unite : undefined;
   const minAffiche = pourcentage ? min * 100 : min;
   const maxAffiche = max === undefined ? undefined : pourcentage ? max * 100 : max;
 
@@ -136,6 +138,7 @@ export function ChampNombre({
       <div className="flex items-center justify-between gap-2">
         <label htmlFor={id} className={`${LIBELLE} ${compact ? 'text-[12.5px]' : ''}`}>
           {libelle}
+          {uniteLongue && <span className="font-normal text-muted"> ({uniteLongue})</span>}
         </label>
         {provenance && onProvenance && <SelecteurProvenance valeur={provenance} onChange={onProvenance} libelleChamp={String(libelle)} />}
       </div>
@@ -143,7 +146,7 @@ export function ChampNombre({
         <input
           id={id}
           inputMode="decimal"
-          className={`field-input mono text-right ${unite ? 'pr-14' : ''}`}
+          className={`field-input mono text-right ${uniteCourte ? 'pr-14' : ''}`}
           value={edition ?? affichee}
           onFocus={() => setEdition(affichee.replace(/\s/g, ''))}
           onChange={(e) => {
@@ -153,8 +156,8 @@ export function ChampNombre({
           onBlur={() => setEdition(null)}
           aria-describedby={aide ? `${id}-aide` : undefined}
         />
-        {unite && (
-          <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-[12px] text-muted">{pourcentage ? '%' : unite}</span>
+        {uniteCourte && (
+          <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-[12px] text-muted">{uniteCourte}</span>
         )}
       </div>
       {aide && (

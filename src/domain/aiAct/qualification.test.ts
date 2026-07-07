@@ -114,7 +114,7 @@ describe('qualifierAiAct : justification et obligations', () => {
     const r = qualifierAiAct(base({ annexeIII: '5b', profilage: 'oui', derogation: 'd' }), REFERENCE);
     expect(r.derogationAppliquee).toBeNull();
     expect(r.justification.join(' ')).toMatch(/profilage/);
-    expect(r.justification.join(' ')).toMatch(/art\. 6\(3\)\(d\).*ne peut pas s'appliquer/);
+    expect(r.justification.join(' ')).toMatch(/art\. 6\(3\)\(d\).*ne peut pas s.appliquer/);
     expect(r.articles.map((a) => a.ref)).toEqual(expect.arrayContaining(['art. 6(2)', 'art. 6(3)', 'art. 27', 'annexe III']));
   });
 

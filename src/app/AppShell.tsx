@@ -6,9 +6,8 @@ import { abonnerEtatStockage, persistanceAssuree } from '../store/storage';
 import { usePortefeuilles } from '../store/portfolioStore';
 import { Avis } from '../ui/bits';
 import { Logo } from '../ui/Logo';
+import { LIEN_DEPOT, LIEN_GITHUB } from './liens';
 
-export const LIEN_GITHUB = 'https://github.com/youssefmir';
-export const LIEN_DEPOT = 'https://github.com/youssefmir/ai-usecase-factory';
 
 const LIENS = [
   { vers: '/', libelle: 'Vitrine', fin: true },

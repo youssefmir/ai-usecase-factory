@@ -7,6 +7,7 @@ import { DUREES, transition, useMouvementReduit } from '../ui/motion';
 import { FormeSignal } from '../ui/signalShapes';
 import { CadreGraphique, type ElementLegende } from './ChartFrame';
 import { Infobulle } from './Infobulle';
+import { attributsEtiquette, placerEtiquettes } from './etiquettes';
 import { echelleLineaire } from './scales';
 import { useLargeur } from './useLargeur';
 
@@ -99,6 +100,13 @@ export function PriorityMatrix({
   ];
 
   const pointSurvole = points.find((p) => p.id === survol);
+  const positionsEtiquettes = placerEtiquettes(
+    points.map((p) => {
+      const [dx, dy] = ecarts.get(p.id) ?? [0, 0];
+      return { id: p.id, x: x(p.faisabilite) + dx, y: y(p.valeur) + dy, r: rayon(p.van, vanMax), largeur: 7 * p.code.replace(/^UC-/, '').length };
+    }),
+    { x0: MARGES.gauche, x1: largeur - MARGES.droite },
+  );
 
   const tableau = (
     <table className="table-tech">
@@ -189,7 +197,7 @@ export function PriorityMatrix({
               const px = x(p.faisabilite) + dx;
               const py = y(p.valeur) + dy;
               const r = rayon(p.van, vanMax);
-              const aGauche = px > largeur - MARGES.droite - 80;
+              const etiquette = attributsEtiquette(positionsEtiquettes.get(p.id) ?? 'droite', r);
               return (
                 <motion.g
                   key={p.id}
@@ -220,9 +228,10 @@ export function PriorityMatrix({
                   </g>
                   {etiquettes && (
                     <text
-                      x={aGauche ? -r - 6 : r + 6}
-                      dy="0.32em"
-                      textAnchor={aGauche ? 'end' : 'start'}
+                      x={etiquette.x}
+                      y={etiquette.y}
+                      dy={etiquette.dy}
+                      textAnchor={etiquette.textAnchor}
                       className="mono fill-[var(--ink)] text-[11px] font-medium"
                       style={{ paintOrder: 'stroke', stroke: 'var(--surface)', strokeWidth: 3 }}
                     >

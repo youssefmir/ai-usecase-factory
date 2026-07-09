@@ -124,7 +124,7 @@ export function MonteCarloChart({ resultat }: { resultat: ResultatMonteCarlo }) 
           </button>
         }
       >
-        <div ref={ref} className="relative" onMouseLeave={() => setSurvol(null)}>
+        <div ref={ref} className="relative w-full min-w-0 [contain:inline-size]" onMouseLeave={() => setSurvol(null)}>
           <svg width={largeur} height={HAUTEUR} role="img" aria-label="Histogramme de la VAN simulée" className="block">
             {graduationsY.map((g) => (
               <g key={g}>

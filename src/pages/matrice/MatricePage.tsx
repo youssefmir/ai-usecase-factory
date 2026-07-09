@@ -172,7 +172,7 @@ export default function MatricePage() {
         </div>
       </Reveal>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
+      <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_19rem]">
         <Reveal rang={2} className="min-w-0">
           <PriorityMatrix
             points={points}

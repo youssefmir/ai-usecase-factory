@@ -87,7 +87,7 @@ export function CashflowChart({ resultat }: { resultat: ResultatBusinessCase }) 
       ]}
       tableau={tableau}
     >
-      <div ref={ref} className="relative" onMouseLeave={() => setSurvol(null)}>
+      <div ref={ref} className="relative w-full min-w-0 [contain:inline-size]" onMouseLeave={() => setSurvol(null)}>
         <svg width={largeur} height={HAUTEUR} role="img" aria-label="Graphique des flux de trésorerie annuels et cumulés" className="block">
           {ticks.map((t) => (
             <g key={t}>

@@ -139,7 +139,7 @@ export function PriorityMatrix({
 
   return (
     <CadreGraphique titre={titre} sousTitre={sousTitre} legende={legende} tableau={tableau}>
-      <div ref={ref} className="relative" onMouseLeave={() => setSurvol(null)}>
+      <div ref={ref} className="relative w-full min-w-0 [contain:inline-size]" onMouseLeave={() => setSurvol(null)}>
         <svg width={largeur} height={hauteur} role="group" aria-label="Matrice valeur × faisabilité des cas d’usage" className="block">
           {[1, 2, 3, 4, 5].map((v) => (
             <g key={v}>

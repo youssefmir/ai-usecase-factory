@@ -72,7 +72,7 @@ export function TornadoChart({ sensibilite }: { sensibilite: ResultatSensibilite
       ]}
       tableau={tableau}
     >
-      <div ref={ref} className="relative" onMouseLeave={() => setSurvol(null)}>
+      <div ref={ref} className="relative w-full min-w-0 [contain:inline-size]" onMouseLeave={() => setSurvol(null)}>
         <svg width={largeur} height={hauteur} role="img" aria-label="Diagramme en tornade de la sensibilité de la VAN" className="block">
           {ticks.map((t) => (
             <g key={t}>

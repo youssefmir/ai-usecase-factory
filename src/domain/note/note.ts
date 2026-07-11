@@ -6,7 +6,7 @@ import { DEROGATIONS_6_3, trouverCasAnnexeIII } from '../aiAct/catalog';
 import { LIBELLES_ACTEURS, NIVEAUX_AI_ACT } from '../aiAct/qualification';
 import type { AnalyseCas } from '../analysis';
 import { analyserSensibilite, simulerMonteCarlo } from '../businessCase/uncertainty';
-import { fmtDateLongue, fmtEuro, fmtMois, fmtNombre, fmtPct } from '../format';
+import { fmtDateLongue, fmtEuro, fmtMois, fmtNombre, fmtPct, minusculeInitiale } from '../format';
 import {
   CATEGORIES_RISQUE,
   DISPONIBILITES,
@@ -338,7 +338,7 @@ export function construireNote(analyse: AnalyseCas, portefeuille: Portfolio, ent
           type: 'paragraphe',
           texte: `Paramètres les plus influents (±${fmtNombre(sensibilite.variation * 100)} %) : ${sensibilite.lignes
             .slice(0, 3)
-            .map((l) => `${l.libelle.toLowerCase()} (amplitude ${fmtEuro(l.amplitude)})`)
+            .map((l) => `${minusculeInitiale(l.libelle)} (amplitude ${fmtEuro(l.amplitude)})`)
             .join(', ')}.`,
         },
       ],

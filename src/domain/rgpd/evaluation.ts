@@ -7,7 +7,7 @@
  *   avec la vigilance issue de l'arrêt CJUE SCHUFA (C-634/21, 7 décembre 2023).
  * - Nécessité d'une AIPD (art. 35) : liste CNIL, ou au moins 2 des 9 critères WP248.
  */
-import { typographie } from '../format';
+import { minusculeInitiale, typographie } from '../format';
 import type { Reponse, RgpdReponses } from '../model';
 import type { CasAnnexeIIIId } from '../aiAct/catalog';
 import { BASES_LEGALES, CATEGORIES_ART_9, CRITERES_AIPD, type CritereAipdId } from './catalog';
@@ -148,7 +148,7 @@ export function evaluerRgpd(r: RgpdReponses, contexte: ContexteRgpd = {}): Resul
     article9 = true;
     refs.add('art. 9');
     const categories = CATEGORIES_ART_9.filter((c) => r.categoriesSensibles.includes(c.id)).map((c) =>
-      c.libelle.toLowerCase(),
+      minusculeInitiale(c.libelle),
     );
     justification.push(
       `Données sensibles${categories.length ? ` (${categories.join(', ')})` : ''} : traitement interdit par principe, sauf exception de l’art. 9(2) à identifier et documenter (consentement explicite, droit du travail et protection sociale, intérêt public important, santé…).`,
@@ -205,7 +205,7 @@ export function evaluerRgpd(r: RgpdReponses, contexte: ContexteRgpd = {}): Resul
 
   if (criteresSuggeresNonRetenus.length) {
     const libelles = CRITERES_AIPD.filter((c) => criteresSuggeresNonRetenus.includes(c.id)).map(
-      (c) => `${c.numero}. ${c.libelle.toLowerCase()}`,
+      (c) => `${c.numero}. ${minusculeInitiale(c.libelle)}`,
     );
     pointsVigilance.push(`Critères suggérés par vos autres réponses mais non retenus : ${libelles.join(' ; ')}. Justifier ce choix.`);
   }
@@ -233,7 +233,7 @@ export function evaluerRgpd(r: RgpdReponses, contexte: ContexteRgpd = {}): Resul
   } else if (nbCriteres === 1) {
     niveau = 'aipd_a_documenter';
     justification.push(
-      `Un seul critère WP248 (${criteresRetenus[0]?.libelle.toLowerCase()}) : AIPD non obligatoire a priori, mais l’analyse doit être documentée ; un seul critère peut suffire si le risque est élevé.`,
+      `Un seul critère WP248 (${minusculeInitiale(criteresRetenus[0]?.libelle ?? '')}) : AIPD non obligatoire a priori, mais l’analyse doit être documentée ; un seul critère peut suffire si le risque est élevé.`,
     );
   } else {
     niveau = 'aipd_non_requise';

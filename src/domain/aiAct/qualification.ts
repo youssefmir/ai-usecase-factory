@@ -7,7 +7,7 @@
  *
  * Résultat : aide à la qualification, qui ne constitue pas un avis juridique.
  */
-import { typographie } from '../format';
+import { minusculeInitiale, typographie } from '../format';
 import type { AiActReponses } from '../model';
 import { dateDuJour, jalonsPourPortees, type JalonDate, type PorteeJalon } from './calendar';
 import {
@@ -234,7 +234,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
     manquants.push("Rôle de l'organisation : fournisseur, déployeur ou les deux ?");
   } else {
     const role = ROLES.find((x) => x.id === r.role);
-    justification.push(`Rôle déclaré : ${role?.libelle.toLowerCase()}.`);
+    justification.push(`Rôle déclaré : ${minusculeInitiale(role?.libelle ?? '')}.`);
     if (r.role === 'deployeur' && r.modificationSubstantielle === 'oui') {
       refsArticles.add('art. 25');
       justification.push(
@@ -248,7 +248,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
     refsArticles.add('art. 5');
     const pratiques = PRATIQUES_INTERDITES.filter((p) => r.pratiquesInterdites.includes(p.id));
     for (const p of pratiques) {
-      justification.push(`Pratique interdite identifiée (${p.article}) : ${p.libelle.toLowerCase()}.`);
+      justification.push(`Pratique interdite identifiée (${p.article}) : ${minusculeInitiale(p.libelle)}.`);
       portees.add(p.applicableDes === DATE_INTERDICTIONS ? 'interdictions' : 'interdictions_omnibus');
     }
     const premiere = pratiques.map((p) => p.applicableDes).sort()[0] ?? DATE_INTERDICTIONS;
@@ -301,7 +301,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
   } else if (cas && !cas.hautRisque) {
     refsArticles.add('annexe III');
     justification.push(
-      `Le cas relève de l'exception prévue au point ${cas.point} de l'annexe III (${cas.libelle.toLowerCase()}) : il n'est pas à haut risque à ce titre.`,
+      `Le cas relève de l'exception prévue au point ${cas.point} de l'annexe III (${minusculeInitiale(cas.libelle)}) : il n'est pas à haut risque à ce titre.`,
     );
     avertissements.push(
       "L'exception ne couvre que la détection de fraude : si le même système sert aussi à évaluer la solvabilité ou à orienter la décision d'octroi, il redevient à haut risque (point 5 b).",
@@ -309,7 +309,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
   } else if (cas) {
     refsArticles.add('art. 6(2)');
     refsArticles.add('annexe III');
-    justification.push(`Le cas d'usage relève de l'annexe III, point ${cas.point} : ${cas.libelle.toLowerCase()}.`);
+    justification.push(`Le cas d'usage relève de l'annexe III, point ${cas.point} : ${minusculeInitiale(cas.libelle)}.`);
 
     const derogation = DEROGATIONS_6_3.find((d) => d.id === r.derogation);
     if (r.profilage === null) {
@@ -328,7 +328,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
       if (derogation) {
         refsArticles.add('art. 6(3)');
         justification.push(
-          `La dérogation ${derogation.article} (${derogation.libelle.toLowerCase()}) a été envisagée mais ne peut pas s'appliquer en cas de profilage.`,
+          `La dérogation ${derogation.article} (${minusculeInitiale(derogation.libelle)}) a été envisagée mais ne peut pas s'appliquer en cas de profilage.`,
         );
       }
     } else if (r.derogation === null) {
@@ -341,7 +341,7 @@ export function qualifierAiAct(r: AiActReponses, reference: string = dateDuJour(
       refsArticles.add('art. 6(3)');
       portees.add('haut_risque_annexe_III');
       justification.push(
-        `Sans profilage, la condition ${derogation.article} est remplie (${derogation.libelle.toLowerCase()}) : le système n'est pas considéré comme à haut risque, à condition qu'il ne présente pas de risque important pour la santé, la sécurité ou les droits fondamentaux.`,
+        `Sans profilage, la condition ${derogation.article} est remplie (${minusculeInitiale(derogation.libelle)}) : le système n'est pas considéré comme à haut risque, à condition qu'il ne présente pas de risque important pour la santé, la sécurité ou les droits fondamentaux.`,
       );
       ajouterObligation({
         id: 'documenter_6_4',

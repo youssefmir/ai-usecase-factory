@@ -103,3 +103,8 @@ export function fmtMois(mois: number | null): string {
 export function typographie(texte: string): string {
   return texte.replace(/'/g, '\u2019');
 }
+
+/** Première lettre en minuscule, sigles conservés (« Annexe III » reste lisible dans une phrase). */
+export function minusculeInitiale(texte: string): string {
+  return texte.charAt(0).toLowerCase() + texte.slice(1);
+}

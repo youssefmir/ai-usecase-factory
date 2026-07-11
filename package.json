@@ -23,7 +23,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "screenshots": "node scripts/screenshots.mjs",
+    "screenshots": "npm run build && node scripts/screenshots.mjs",
     "demo:summary": "node scripts/demo-summary.mjs"
   },
   "dependencies": {

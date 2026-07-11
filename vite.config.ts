@@ -13,6 +13,13 @@ export default defineConfig({
   build: {
     target: 'es2022',
     chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      onwarn(avertissement, signaler) {
+        // Commentaires d'annotation de zod que Rollup ignore : sans effet sur le bundle.
+        if (avertissement.code === 'INVALID_ANNOTATION' && avertissement.id?.includes('node_modules/zod')) return;
+        signaler(avertissement);
+      },
+    },
   },
   test: {
     environment: 'jsdom',

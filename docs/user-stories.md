@@ -1,6 +1,6 @@
 # Backlog produit : épopées, user stories et critères d’acceptation
 
-Ce backlog applique au produit lui-même la démarche proposée aux utilisateurs : épopées, user stories au format INVEST (indépendante, négociable, valorisable, estimable, petite, testable), critères d’acceptation en Gherkin et priorisation MoSCoW (*Must*, *Should*, *Could*, *Won’t* pour cette version). Les personas sont décrites dans [personas.md](personas.md) ; la correspondance avec les tests figure dans [plan-de-recette.md](plan-de-recette.md).
+Ce backlog applique au produit lui-même la démarche proposée aux utilisateurs : épopées, user stories au format INVEST (indépendante, négociable, valorisable, estimable, petite, testable), critères d’acceptation en Gherkin et priorisation MoSCoW (*Must*, *Should*, *Could*, *Won’t* pour cette version). Les personas sont décrites dans [personas.md](personas.md) ; la correspondance avec les tests figure dans [plan-de-recette.md](plan-de-recette.md).
 
 ## Synthèse
 
@@ -221,7 +221,7 @@ Scénario : prix présenté comme hypothèse
 ```
 
 ### US-18 Identifier les hypothèses critiques · Should · 3 pts
-En tant que **Business Analyst**, je veux un diagramme en tornade ±20 % afin de savoir quelles hypothèses fiabiliser en premier.
+En tant que **Business Analyst**, je veux un diagramme en tornade ±20 % afin de savoir quelles hypothèses fiabiliser en premier.
 
 ```gherkin
 Scénario : tri par influence
@@ -311,13 +311,13 @@ Focus visible, onglets au clavier, graphiques avec vue tableau, textes alternati
 Thème du système par défaut, bascule mémorisée.
 
 ### US-28 Utiliser l’outil sur mobile · Should · 3 pts
-Aucune barre de défilement horizontale à 390 px ; listes à la place des tableaux.
+Aucune barre de défilement horizontale à 390 px ; listes à la place des tableaux.
 
 ### US-29 Travailler hors ligne · Must · 2 pts
-Aucune ressource externe au chargement : polices et bibliothèques embarquées.
+Aucune ressource externe au chargement : polices et bibliothèques embarquées.
 
 ## Hors périmètre de cette version (Won’t)
 
 - Comptes utilisateurs, collaboration en temps réel et serveur de données.
 - Génération de PDF côté application (l’impression du navigateur suffit).
-- Connexion directe à EUR-Lex ou à une base juridique : le référentiel est maintenu dans le code.
+- Connexion directe à EUR-Lex ou à une base juridique : le référentiel est maintenu dans le code.

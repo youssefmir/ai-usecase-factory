@@ -143,7 +143,7 @@ export function construireNote(analyse: AnalyseCas, portefeuille: Portfolio, ent
           type: 'definitions',
           elements: [
             { terme: 'Problème', definition: texteOuDefaut(cas.probleme) },
-            { terme: 'Solution envisagée', definition: `${libelleTypologie(cas.solution.typologie)} : ${texteOuDefaut(cas.solution.description)}` },
+            { terme: 'Solution envisagée', definition: `${libelleTypologie(cas.solution.typologie)} : ${minusculeInitiale(texteOuDefaut(cas.solution.description))}` },
             {
               terme: 'Priorisation',
               definition: `${libelleQuadrant(scoring.quadrant)} · priorité ${scoring.priorite === null ? 'non calculée' : `${fmtNombre(scoring.priorite)}/100`}`,

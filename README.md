@@ -84,7 +84,7 @@ Synthèse calculée par l’application sur les données de démonstration (comm
 Ce que ces résultats montrent pour un comité :
 
 - **Un score attractif ne suffit pas** : le score d’aide à l’octroi a une VAN centrale de 94 k€, mais 20 % de chances seulement d’être positive, car les coûts sont plus incertains que les gains.
-- **La conformité change la décision** : l’optimisation du planning de la PME relève de l’annexe III, point 4 b (attribution des tâches aux salariés) ; avec une VAN négative, l’outil la classe « À écarter ».
+- **La conformité change la décision** : l’optimisation du planning de la PME relève de l’annexe III, point 4 b (attribution des tâches aux salariés) ; avec des notes faibles et une VAN négative, l’outil la classe « À écarter ».
 - **La valeur n’est pas toujours financière** : l’agent conversationnel de la ville est un quick win pour les usagers malgré une VAN négative ; le scoring rend cet arbitrage explicite.
 - **Trois FRIA à prévoir** : le score de crédit, l’assistant de pré-analyse et l’aide à l’instruction des aides sociales.
 

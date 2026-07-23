@@ -13,7 +13,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5(1)(a)',
     libelle: 'Techniques subliminales, manipulatrices ou trompeuses',
     description:
-      "Altérer substantiellement le comportement d'une personne en portant atteinte à sa capacité de décision éclairée, en causant ou en étant susceptible de causer un préjudice important.",
+      "Altérer substantiellement le comportement d’une personne en portant atteinte à sa capacité de décision éclairée, en causant ou en étant susceptible de causer un préjudice important.",
     applicableDes: '2025-02-02',
   },
   {
@@ -21,7 +21,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5(1)(b)',
     libelle: 'Exploitation des vulnérabilités',
     description:
-      "Exploiter les vulnérabilités liées à l'âge, au handicap ou à la situation sociale ou économique pour altérer substantiellement le comportement, avec un préjudice important.",
+      "Exploiter les vulnérabilités liées à l’âge, au handicap ou à la situation sociale ou économique pour altérer substantiellement le comportement, avec un préjudice important.",
     applicableDes: '2025-02-02',
   },
   {
@@ -35,9 +35,9 @@ export const PRATIQUES_INTERDITES = [
   {
     id: 'prediction_infraction',
     article: 'art. 5(1)(d)',
-    libelle: "Prédiction d'infraction fondée uniquement sur le profilage",
+    libelle: "Prédiction d’infraction fondée uniquement sur le profilage",
     description:
-      "Évaluer le risque qu'une personne commette une infraction pénale uniquement sur la base de son profilage ou de ses traits de personnalité.",
+      "Évaluer le risque qu’une personne commette une infraction pénale uniquement sur la base de son profilage ou de ses traits de personnalité.",
     applicableDes: '2025-02-02',
   },
   {
@@ -45,7 +45,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5(1)(e)',
     libelle: 'Bases de reconnaissance faciale par moissonnage non ciblé',
     description:
-      "Créer ou développer des bases de données de reconnaissance faciale par moissonnage non ciblé d'images faciales (internet, vidéosurveillance).",
+      "Créer ou développer des bases de données de reconnaissance faciale par moissonnage non ciblé d’images faciales (internet, vidéosurveillance).",
     applicableDes: '2025-02-02',
   },
   {
@@ -53,7 +53,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5(1)(f)',
     libelle: 'Reconnaissance des émotions au travail ou dans l’enseignement',
     description:
-      "Inférer les émotions d'une personne sur le lieu de travail ou dans un établissement d'enseignement, sauf pour des raisons médicales ou de sécurité.",
+      "Inférer les émotions d’une personne sur le lieu de travail ou dans un établissement d’enseignement, sauf pour des raisons médicales ou de sécurité.",
     applicableDes: '2025-02-02',
   },
   {
@@ -61,7 +61,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5(1)(g)',
     libelle: 'Catégorisation biométrique sur des attributs sensibles',
     description:
-      "Déduire la race, les opinions politiques, l'affiliation syndicale, les convictions religieuses ou philosophiques, la vie sexuelle ou l'orientation sexuelle à partir de données biométriques.",
+      "Déduire la race, les opinions politiques, l’affiliation syndicale, les convictions religieuses ou philosophiques, la vie sexuelle ou l’orientation sexuelle à partir de données biométriques.",
     applicableDes: '2025-02-02',
   },
   {
@@ -77,7 +77,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5, ajout du règlement (UE) 2026/1744',
     libelle: 'Images intimes non consenties (« nudification »)',
     description:
-      "Systèmes conçus pour générer des images ou vidéos à caractère sexuel de personnes réelles identifiables sans leur consentement. Interdiction ajoutée par l'omnibus.",
+      "Systèmes conçus pour générer des images ou vidéos à caractère sexuel de personnes réelles identifiables sans leur consentement. Interdiction ajoutée par l’omnibus.",
     applicableDes: '2026-12-02',
   },
   {
@@ -85,7 +85,7 @@ export const PRATIQUES_INTERDITES = [
     article: 'art. 5, ajout du règlement (UE) 2026/1744',
     libelle: 'Contenus pédocriminels générés par IA',
     description:
-      "Systèmes générant ou manipulant des contenus à caractère pédocriminel. Interdiction ajoutée par l'omnibus.",
+      "Systèmes générant ou manipulant des contenus à caractère pédocriminel. Interdiction ajoutée par l’omnibus.",
     applicableDes: '2026-12-02',
   },
 ] as const;
@@ -288,27 +288,27 @@ export const OPTIONS_GPAI_IDS = OPTIONS_GPAI.map((o) => o.id) as [OptionGpaiId, 
 
 /** Titres courts des articles cités dans les résultats. */
 export const ARTICLES: Record<string, string> = {
-  'art. 2': "Champ d'application",
-  'art. 3(1)': "Définition d'un système d'IA",
-  'art. 4': "Maîtrise de l'IA",
+  'art. 2': "Champ d’application",
+  'art. 3(1)': "Définition d’un système d’IA",
+  'art. 4': "Maîtrise de l’IA",
   'art. 5': 'Pratiques interdites',
-  'art. 6(1)': "Haut risque : produits couverts par l'annexe I",
-  'art. 6(2)': "Haut risque : cas d'usage de l'annexe III",
-  'art. 6(3)': "Dérogation pour certains systèmes de l'annexe III",
-  'art. 6(4)': "Documentation de l'évaluation de non-haut risque",
+  'art. 6(1)': "Haut risque : produits couverts par l’annexe I",
+  'art. 6(2)': "Haut risque : cas d’usage de l’annexe III",
+  'art. 6(3)': "Dérogation pour certains systèmes de l’annexe III",
+  'art. 6(4)': "Documentation de l’évaluation de non-haut risque",
   'art. 8 à 15': 'Exigences applicables aux systèmes à haut risque',
   'art. 16': 'Obligations des fournisseurs de systèmes à haut risque',
   'art. 25': 'Responsabilités tout au long de la chaîne de valeur',
   'art. 26': 'Obligations des déployeurs de systèmes à haut risque',
-  'art. 27': "Analyse d'impact sur les droits fondamentaux (FRIA)",
+  'art. 27': "Analyse d’impact sur les droits fondamentaux (FRIA)",
   'art. 43': 'Évaluation de la conformité',
-  'art. 49': "Enregistrement dans la base de données de l'UE",
+  'art. 49': "Enregistrement dans la base de données de l’UE",
   'art. 50': 'Obligations de transparence',
-  'art. 53': "Obligations des fournisseurs de modèles d'IA à usage général",
+  'art. 53': "Obligations des fournisseurs de modèles d’IA à usage général",
   'art. 55': 'Modèles à usage général présentant un risque systémique',
   'art. 72': 'Surveillance après commercialisation',
   'art. 73': 'Signalement des incidents graves',
-  'art. 86': "Droit à l'explication des décisions individuelles",
-  'annexe I': "Législation d'harmonisation de l'Union (produits)",
+  'art. 86': "Droit à l’explication des décisions individuelles",
+  'annexe I': "Législation d’harmonisation de l’Union (produits)",
   'annexe III': 'Systèmes à haut risque visés à l’art. 6(2)',
 };

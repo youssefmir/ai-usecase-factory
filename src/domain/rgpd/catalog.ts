@@ -10,7 +10,7 @@ export const CATEGORIES_ART_9 = [
   { id: 'convictions', libelle: 'Convictions religieuses ou philosophiques' },
   { id: 'syndicat', libelle: 'Appartenance syndicale' },
   { id: 'genetique', libelle: 'Données génétiques' },
-  { id: 'biometrie', libelle: "Données biométriques aux fins d'identifier une personne de manière unique" },
+  { id: 'biometrie', libelle: "Données biométriques aux fins d’identifier une personne de manière unique" },
   { id: 'sante', libelle: 'Données concernant la santé' },
   { id: 'vie_sexuelle', libelle: 'Vie sexuelle ou orientation sexuelle' },
 ] as const;
@@ -54,7 +54,7 @@ export const CRITERES_AIPD = [
     id: 'donnees_sensibles',
     numero: 4,
     libelle: 'Données sensibles ou hautement personnelles',
-    description: "Catégories particulières (art. 9), données d'infraction, données financières, de communication ou de localisation.",
+    description: "Catégories particulières (art. 9), données d’infraction, données financières, de communication ou de localisation.",
   },
   {
     id: 'grande_echelle',
@@ -83,8 +83,8 @@ export const CRITERES_AIPD = [
   {
     id: 'exclusion_droit',
     numero: 9,
-    libelle: "Exclusion du bénéfice d'un droit, d'un service ou d'un contrat",
-    description: "Le traitement peut empêcher une personne d'exercer un droit ou de bénéficier d'un service ou d'un contrat.",
+    libelle: "Exclusion du bénéfice d’un droit, d’un service ou d’un contrat",
+    description: "Le traitement peut empêcher une personne d’exercer un droit ou de bénéficier d’un service ou d’un contrat.",
   },
 ] as const;
 

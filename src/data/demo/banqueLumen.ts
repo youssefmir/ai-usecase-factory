@@ -55,7 +55,7 @@ const completude: UseCaseInput = {
   solution: {
     typologie: 'extraction_documentaire',
     description:
-      "Classification des pièces (identité, revenus, domicile, RIB), contrôle de lisibilité et de validité, rapprochement nom / adresse entre pièces, puis retour immédiat au client sur l'écran de dépôt.",
+      "Classification des pièces (identité, revenus, domicile, RIB), contrôle de lisibilité et de validité, rapprochement nom / adresse entre pièces, puis retour immédiat au client sur l’écran de dépôt.",
     niveauAutonomie: 'validation_humaine',
     supervisionHumaine: 'Le gestionnaire valide les anomalies signalées ; un seuil de confiance renvoie les cas douteux en contrôle manuel.',
     alternatives: 'Règles fixes sur les métadonnées des fichiers : écartées, elles ne détectent ni l’illisibilité ni les incohérences.',
@@ -155,7 +155,7 @@ const relances: UseCaseInput = {
   statut: 'en_cadrage',
   porteur: 'Direction de la relation client',
   probleme:
-    "Une demande sur cinq acceptée en principe n'aboutit pas à la signature (hypothèse : 22 %). Les conseillers relancent dans l'ordre chronologique, sans distinguer les clients sur le point d'abandonner.",
+    "Une demande sur cinq acceptée en principe n’aboutit pas à la signature (hypothèse : 22 %). Les conseillers relancent dans l’ordre chronologique, sans distinguer les clients sur le point d’abandonner.",
   processus: 'Suivi des demandes en cours, relances par le centre de relation client.',
   objectifs: 'Réduire les abandons après accord de principe en concentrant les relances là où elles ont le plus d’effet.',
   personas: [
@@ -263,7 +263,7 @@ const preAnalyse: UseCaseInput = {
   statut: 'en_cadrage',
   porteur: 'Direction des engagements',
   probleme:
-    "Les analystes consacrent environ 30 minutes par dossier en zone grise à compiler relevés, ratios et règles de la politique de crédit avant de pouvoir analyser. Les notes d'analyse sont hétérogènes et difficiles à contrôler.",
+    "Les analystes consacrent environ 30 minutes par dossier en zone grise à compiler relevés, ratios et règles de la politique de crédit avant de pouvoir analyser. Les notes d’analyse sont hétérogènes et difficiles à contrôler.",
   processus: 'Analyse et décision des dossiers de crédit hors acceptation automatique.',
   objectifs: 'Réduire le temps de compilation et homogénéiser les notes d’analyse, sans retirer la décision à l’analyste.',
   personas: [

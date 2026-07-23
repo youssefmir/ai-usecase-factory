@@ -28,7 +28,7 @@ export const TYPOLOGIES = [
   { id: 'extraction_documentaire', libelle: 'Extraction documentaire' },
   { id: 'classification', libelle: 'Classification / scoring' },
   { id: 'prevision', libelle: 'Prévision' },
-  { id: 'detection_anomalies', libelle: "Détection d'anomalies" },
+  { id: 'detection_anomalies', libelle: "Détection d’anomalies" },
   { id: 'optimisation', libelle: 'Optimisation' },
   { id: 'agent', libelle: 'Agent' },
 ] as const;
@@ -213,7 +213,7 @@ export const PARAMETRES_INCERTAINS = [
   { id: 'tempsUnitaireMin', libelle: 'Temps unitaire' },
   { id: 'partAutomatisable', libelle: 'Part automatisable' },
   { id: 'coutHoraire', libelle: 'Coût horaire chargé' },
-  { id: 'adoption', libelle: "Taux d'adoption" },
+  { id: 'adoption', libelle: "Taux d’adoption" },
   { id: 'gainsQualite', libelle: 'Gains qualité' },
   { id: 'joursBuild', libelle: 'Charge de build (jours)' },
   { id: 'tjm', libelle: 'TJM' },

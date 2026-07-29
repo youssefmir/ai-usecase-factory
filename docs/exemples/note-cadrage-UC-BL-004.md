@@ -160,7 +160,7 @@ AIPD probablement requise · 5 critère(s) WP248 retenu(s).
 | Monte Carlo (5 000 tirages) : P10 / P50 / P90 | -381 102 € / -149 710 € / 73 188 € |
 | Probabilité que la VAN soit positive | 20 % |
 
-Paramètres les plus influents (±20 %) : gains qualité (amplitude 338 094 €), taux d'adoption (amplitude 326 790 €), charge de build (jours) (amplitude 185 487 €).
+Paramètres les plus influents (±20 %) : gains qualité (amplitude 338 094 €), taux d’adoption (amplitude 326 790 €), charge de build (jours) (amplitude 185 487 €).
 
 ## 11. Parties prenantes, dépendances et risques
 

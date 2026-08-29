@@ -2,7 +2,7 @@
 
 > Un atelier web qui aide les Business Analysts et les comités IA à cadrer, prioriser, chiffrer et sécuriser leurs cas d’usage d’intelligence artificielle, pour décider vite et sur des arguments vérifiables.
 
-**[Voir la démo](https://youssefmir.github.io/ai-usecase-factory/)** · [Démarche BA](docs/README.md) · [Résultats clés](#résultats)
+**[Voir la démo](https://ai-usecase-factory.vercel.app/)** · [Démarche BA](docs/README.md) · [Résultats clés](#résultats)
 
 ![Page d’ouverture d’AI Use Case Factory : une ligne de montage où les cas d’usage passent par cinq postes avant d’être placés dans une matrice valeur × faisabilité](docs/img/vitrine.png)
 *Page d’ouverture : les six cas fictifs de Banque Lumen passent par les cinq postes de l’atelier (cadrage, scoring, AI Act, business case, roadmap), puis se placent dans la matrice.*
@@ -20,7 +20,7 @@
 
 ## Essayer en 1 minute
 
-1. En ligne, sans installation : [youssefmir.github.io/ai-usecase-factory](https://youssefmir.github.io/ai-usecase-factory/).
+1. En ligne, sans installation : [ai-usecase-factory.vercel.app](https://ai-usecase-factory.vercel.app/).
 2. En local, avec Node.js 20.19 ou plus récent :
 
 ```bash
@@ -104,7 +104,7 @@ flowchart LR
   R --> N[Note de cadrage A4 et Markdown]
 ```
 
-- **Tout s’exécute dans le navigateur** : aucune API ni base de données ; le site statique est publié sur GitHub Pages.
+- **Tout s’exécute dans le navigateur** : aucune API ni base de données ; le site statique est publié sur Vercel.
 - **La logique métier est pure et testée** : scoring, qualification, business case et roadmap sont des fonctions sans effet de bord (`src/domain`).
 - **Les données sont validées** : des schémas zod décrivent le modèle, valident l’import JSON et les réponses de l’assistant.
 - **L’interface est en React et TypeScript strict**, avec un état persisté dans le stockage local et des graphiques SVG animés.
@@ -136,7 +136,7 @@ flowchart LR
 | `npm run screenshots` | Régénère les captures de `docs/img` |
 | `npm run demo:summary` | Affiche la synthèse calculée des portefeuilles de démonstration |
 
-Le site est publié sous `/ai-usecase-factory/` ; pour un autre chemin, définissez la variable `BASE_PATH` au moment du build (par exemple `BASE_PATH=/ npm run build`).
+Le site est publié à la racine sur [Vercel](https://ai-usecase-factory.vercel.app/). Le projet Vercel est relié à ce dépôt : chaque push sur `main` déclenche une publication automatique. La configuration `vercel.json` installe les dépendances avec `npm ci` et construit le site avec `BASE_PATH=/ npm run build`. Le chemin GitHub Pages `/ai-usecase-factory/` reste la valeur par défaut pour les autres builds ; il se surcharge avec `BASE_PATH`.
 
 ## Qualité, données et limites
 
